@@ -25,20 +25,20 @@ You can also add notes with JavaScript. This adds a bunch of random stuff and so
 <pre>
 for(var i = 0; i < 500; i++) {
     song.addNote(new Note(song,
-    piano[Math.round(Math.random()*piano.length)] /*note (piano is an array of B7...C2) */,
-    Math.round(Math.random()*64) /*time*/,
-    1 /*length in 1/4 intervals*/,
-    0 /*instrument*/));
+    piano[Math.round(Math.random()*piano.length)] /* Note (Piano is an array of B7...C2) */,
+    Math.round(Math.random()*64) /* Time */,
+    1 /* Length in 1/4 intervals */,
+    0 /* Instrument */));
 }
 </pre>
 <p>This is slightly better:</p>
 <pre>
-for(var i = 0; i < 500; i++) {
+for (var i = 0; i < 500; i++) {
     song.addNote(new Note(song,
-    scales[1][Math.floor(Math.random()*scales[1].length)]+Math.floor(Math.random()*6+2) /*scales[1] is the C Major scale */,
-    Math.round(Math.random()*64) /*time*/,
-    1 /*length in 1/4 intervals*/,
-    0 /*instrument*/));
+    scales[1][Math.floor(Math.random() * scales[1].length)] + Math.floor(Math.random() * 6 + 2) /* scales[1] is the C Major scale */,
+    Math.round(Math.random() * 64) /* Time */,
+    1 /* Length in 1/4 intervals */,
+    0 /* Instrument */));
 }
 </pre>
 <?php
