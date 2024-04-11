@@ -3,41 +3,39 @@ $featured = array(
     array(67179, "Gracious Intervention", "Wafels"),
     array(67844, "Angel Beats", "Sora"),
     array(55030, "TechnoTechnoTechnoooo!", "hmyj"),
-    array(66964, "The Legend of Zelda Overworld Theme", ""),
+    array(66964, "The Legend Of Zelda Overworld Theme", ""),
     array(64836, "No Game No Life", "MiniRunaway"),
-    array(44487, "The Lord of the Rings Melody", "zoyd11"),
-    array(34334, "8 Awesome Angles of Youtube! Part One", ""),
-    /*array(, "", ""),
+    array(44487, "The Lord Of The Rings Melody", "zoyd11"),
+    array(34334, "8 Awesome Angles Of YouTube! Part 1", ""),
+    /* array(, "", ""),
     array(, "", ""),
     array(, "", ""),
     array(, "", ""),
     array(, "", ""),
     array(, "", ""),
     array(, "", ""),
-    array(, "", ""),*/
+    array(, "", ""), */
 );
 if(!defined('IN_SITE'))
     require('../inc/init.php');
 $limit = 12;
-/*echo '<div id="featured" style="display:none">';
+/* echo '<div id="featured" style="display:none">';
 for($i = 0; $i < 4; $i++) {
     $seq = $featured[rand(0, count($featured)-1)];
     echo '<a href="/'.$seq[0].'" onclick="return onSequenceLinkClick(event, '.$seq[0].')"><img width="131" height="131" src="/preview.php?v=2&id='.$seq[0].'&title='.urlencode($seq[1]).'"/>';
 }
-echo '</div>';*/
+echo '</div>'; */
 echo '<div id="random">';
 $result = db_query('SELECT *
   FROM sequences WHERE deleted=0 AND '.randomSequences($limit).' LIMIT '.$limit);
-while($row = mysqli_fetch_array($result))
-{
+while($row = mysqli_fetch_array($result)) {
 	echo '<a href="/'.$row['id'].'" onclick="return onSequenceLinkClick(event, '.$row['id'].')">'.preview($row['id'], $row['title']).'</a>';
 }
 echo '</div>
 <div id="popular" style="display:none">';
 $result = db_query('SELECT *
   FROM sequences WHERE deleted=0 AND '.time().'-date < 2628000 ORDER BY accesscount DESC LIMIT '.$limit);
-while($row = mysqli_fetch_array($result))
-{
+while($row = mysqli_fetch_array($result)) {
 	echo '<a href="/'.$row['id'].'" onclick="navigate('.$row['id'].'); return false;">'.preview($row['id'], $row['title']).'</a>';
 }
 echo '</div>';
